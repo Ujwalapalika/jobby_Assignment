@@ -130,6 +130,16 @@ class Jobs extends Component {
     this.setState({searchInput: event.target.value})
   }
 
+  onEnterSearch = event => {
+    if (event.key === 'Enter') {
+      this.getJobData()
+    }
+  }
+
+  onSubmitSearch = () => {
+    this.getJobData()
+  }
+
   renderSearch = () => {
     const {searchInput} = this.state
     return (
@@ -223,6 +233,10 @@ class Jobs extends Component {
     )
   }
 
+  retryBtn = () => {
+    this.getProfileData()
+  }
+
   renderFailureProfileView = () => (
     <div className="profile_container">
       <h1>profile Fail</h1>
@@ -310,7 +324,7 @@ class Jobs extends Component {
             {this.renderProfile()}
             <hr className="hr_line" />
             <h1>Type Of Employment</h1>
-            {this.renderCheckbox()}
+            {this.onCheckBoxInput()}
             <hr className="hr_line" />
             <h1>Salary Range</h1>
             {this.renderRadioButton()}
