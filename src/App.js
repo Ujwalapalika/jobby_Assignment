@@ -11,10 +11,10 @@ import './App.css'
 // Replace your code here
 const App = () => (
   <Switch>
-    <ProtectedRoute exact path="/login" Component={Login} />
-    <ProtectedRoute exact path="/" Component={Home} />
-    <ProtectedRoute exact path="/jobs" Component={Jobs} />
-    <ProtectedRoute exact path="/not-found" Component={NotFound} />
+    <ProtectedRoute exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/jobs" component={Jobs} />
+    <ProtectedRoute exact path="/not-found" component={NotFound} />
     <Redirect to="/not-found" />
   </Switch>
 )

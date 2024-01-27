@@ -238,6 +238,18 @@ class Jobs extends Component {
     </div>
   )
 
+  renderFailureJobView = () => (
+    <>
+      <div className="jobs_notFound">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
+          alt="not found"
+          className="notFound"
+        />
+      </div>
+    </>
+  )
+
   renderSuccessJobView = () => {
     const {jobsData} = this.state
     const noJobs = jobsData.length === 0
