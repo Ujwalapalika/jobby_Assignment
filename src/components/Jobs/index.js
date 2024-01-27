@@ -193,7 +193,7 @@ class Jobs extends Component {
     </ul>
   )
 
-  onrenderRadioButton = () => (
+  renderRadioButton = () => (
     <ul className="radio_container">
       {salaryRangesList.map(salary => (
         <li className="li_container" key={salary.salaryRangeId}>
