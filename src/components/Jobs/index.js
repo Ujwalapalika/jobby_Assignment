@@ -170,19 +170,19 @@ class Jobs extends Component {
       const updateList = activeCheckBox.filter(
         eachItem => eachItem !== event.target.id,
       )
-      this.setState({activeCheckBox: updateList}, this.getJobData())
+      this.setState({activeCheckBox: updateList}, this.getJobData)
     } else {
       this.setState(
         prevState => ({
-          activeCheckBox: [...prevState.activeCheckBox, event.target.value],
+          activeCheckBox: [...prevState.activeCheckBox, event.target.id],
         }),
-        this.getJobData(),
+        this.getJobData,
       )
     }
   }
 
   selectSalary = event => {
-    this.setState({activeSalaryId: event.target.value}, this.getJobData())
+    this.setState({activeSalaryId: event.target.id}, this.getJobData)
   }
 
   onCheckBoxInput = () => (
@@ -226,8 +226,8 @@ class Jobs extends Component {
     const {name, profileImageUrl, shortBio} = profileData
     return (
       <div className="profile_container">
-        <img src={profileImageUrl} alt="name" className="pi" />
-        <p>{name}</p>
+        <img src={profileImageUrl} alt="profile" className="pi" />
+        <h1>{name}</h1>
         <p>{shortBio}</p>
       </div>
     )
@@ -235,6 +235,10 @@ class Jobs extends Component {
 
   retryBtn = () => {
     this.getProfileData()
+  }
+
+  onRetry = () => {
+    this.getJobData()
   }
 
   renderFailureProfileView = () => (
@@ -256,10 +260,15 @@ class Jobs extends Component {
     <>
       <div className="jobs_notFound">
         <img
-          src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
-          alt="not found"
+          src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+          alt="failure view"
           className="notFound"
         />
+        <h1>Oops! Something Went Wrong</h1>
+        <p>We cannot seem to find the page you are looking for</p>
+        <button type="button" onClick={this.onRetry}>
+          Retry
+        </button>
       </div>
     </>
   )
@@ -275,7 +284,7 @@ class Jobs extends Component {
           className="nojobs"
         />
         <h1>No jobs found</h1>
-        <p>We could not found any jobs. Try other Filters</p>
+        <p>We could not find any jobs. Try other filters</p>
       </div>
     ) : (
       <ul>

@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
+import './index.css'
 
 class Login extends Component {
   state = {
@@ -52,31 +53,40 @@ class Login extends Component {
       return <Redirect to="/" />
     }
     return (
-      <div>
-        <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-            alt="website logo"
-          />
-          <h1>Jobby</h1>
-        </div>
-        <form onSubmit={this.submitForm}>
-          <label htmlFor="username">USERNAME</label>
+      <div className="login_container">
+        <form className="form_container" onSubmit={this.submitForm}>
+          <div className="logo_container">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+              alt="website logo"
+            />
+          </div>
+          <label htmlFor="USERNAME" className="form_label">
+            USERNAME
+          </label>
           <input
-            id="username"
+            id="USERNAME"
             type="text"
             onChange={this.changeUserName}
             value={username}
+            className="form_input"
           />
-          <label htmlFor="password">USERNAME</label>
+          <br />
+          <label htmlFor="password" className="form_label">
+            PASSWORD
+          </label>
           <input
             id="password"
             type="password"
             onChange={this.changePassword}
             value={password}
+            className="form_input"
           />
-          <button type="submit">Login</button>
-          {showErrorMsg && <p>*{errorMsg}</p>}
+          <br />
+          <button type="submit" className="form_submit">
+            Login
+          </button>
+          {showErrorMsg && <p className="err">*{errorMsg}</p>}
         </form>
       </div>
     )

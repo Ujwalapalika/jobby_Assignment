@@ -8,7 +8,7 @@ const Home = props => {
   }
 
   return (
-    <>
+    <li>
       <Header />
       <div className="home_container">
         <h1 className="home_heading">Find The Job That Fits Your Life</h1>
@@ -22,7 +22,7 @@ const Home = props => {
           </button>
         </Link>
       </div>
-    </>
+    </li>
   )
 }
 export default Home
