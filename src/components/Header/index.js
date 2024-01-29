@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
 import {Link, withRouter} from 'react-router-dom'
+import './index.css'
 
 const Header = props => {
   const logout = () => {

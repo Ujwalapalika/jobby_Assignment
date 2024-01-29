@@ -82,6 +82,7 @@ class AboutJobItem extends Component {
 
   renderJobDetails = () => {
     const {jobDetailData, similarJobsData} = this.state
+    console.log(jobDetailData)
     if (jobDetailData.length >= 1) {
       const {
         companyLogoUrl,
@@ -94,9 +95,9 @@ class AboutJobItem extends Component {
         rating,
         skills,
         title,
-      } = jobDetailData
+      } = jobDetailData[0]
 
-      console.log(skills)
+      console.log(title)
       return (
         <li className="jobItemContainer">
           <div className="first_part_container">
@@ -181,10 +182,12 @@ class AboutJobItem extends Component {
     <>
       <div className="jobs_notFound">
         <img
-          src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
-          alt="not found"
-          className="notFound"
+          src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+          alt="failure view"
+          className="failure view"
         />
+        <h1>Oops! Something Went Wrong</h1>
+        <p>We cannot seem to find the page you are looking for</p>
         <button type="button" onClick={this.onRetry}>
           Retry
         </button>
